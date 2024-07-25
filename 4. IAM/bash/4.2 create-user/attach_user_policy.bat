@@ -1,0 +1,1 @@
+aws iam attach-user-policy --user-name test_user_iam --policy-arn arn:aws:iam::444903350037:policy/list_iam_users
