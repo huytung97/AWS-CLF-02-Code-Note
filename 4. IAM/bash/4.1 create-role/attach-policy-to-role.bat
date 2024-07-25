@@ -1,0 +1,1 @@
+aws iam attach-role-policy --role-name EC2_listUsers --policy-arn arn:aws:iam::444903350037:policy/list_iam_users

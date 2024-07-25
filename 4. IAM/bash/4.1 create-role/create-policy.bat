@@ -1,0 +1,1 @@
+aws iam create-policy --policy-name list_iam_users  --policy-document file://listUserPolicyDocument.json

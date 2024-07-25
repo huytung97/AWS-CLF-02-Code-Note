@@ -1,0 +1,36 @@
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "EC2_listUsers",
+        "RoleId": "AROAWPFSOL4KZ3CWUPR27",
+        "Arn": "arn:aws:iam::444903350037:role/EC2_listUsers",
+        "CreateDate": "2024-07-24T15:50:19+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        }
+    }
+}
+---------------
+{
+    "Policy": {
+        "PolicyName": "list_iam_users",
+        "PolicyId": "ANPAWPFSOL4K4Z4ACGUTN",
+        "Arn": "arn:aws:iam::444903350037:policy/list_iam_users",
+        "Path": "/",
+        "DefaultVersionId": "v1",
+        "AttachmentCount": 0,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2024-07-24T15:53:17+00:00",
+        "UpdateDate": "2024-07-24T15:53:17+00:00"
+    }
+}
