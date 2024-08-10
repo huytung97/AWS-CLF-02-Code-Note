@@ -1,4 +1,4 @@
-# Instructionn for set up Target Group & ELB
+# Instruction for setting up Target Group & ELB
 
 ## Architect
 ![Architect](./images/Architect.png)
