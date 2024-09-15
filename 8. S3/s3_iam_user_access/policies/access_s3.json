@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",   
+  "Statement": [
+    {
+        "Effect": "Allow",
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "s3:ListBucket"
+        ],
+        "Resource": "arn:aws:s3:::tung-clf-02-chap-8-s3-iam-user",
+        "Condition": {
+            "StringLike": {
+                "s3:prefix": [
+                    "",
+                    "access/*",
+                    "access/subdir/*"
+                ]
+            }
+        }
+    },
+    {
+        "Effect": "Allow",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::tung-clf-02-chap-8-s3-iam-user/access/*"
+    }
+  ]
+}

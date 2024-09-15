@@ -1,0 +1,41 @@
+{
+    "Id": "Policy1726410059667",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1726409940164",
+        "Action": [
+          "s3:ListBucket"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::tung-clf-02-chap-8-s3-iam-user",
+        "Condition": {
+          "StringLike": {
+            "s3:prefix": [
+              "",
+              "access/*",
+              "access/subdir/*"
+            ]
+          }
+        },
+        "Principal": {
+          "AWS": [
+            "arn:aws:iam::891377383563:user/daind_2"
+          ]
+        }
+      },
+      {
+        "Sid": "Stmt1726410054980",
+        "Action": [
+          "s3:GetObject"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::tung-clf-02-chap-8-s3-iam-user/access/*",
+        "Principal": {
+          "AWS": [
+            "arn:aws:iam::891377383563:user/daind_2"
+          ]
+        }
+      }
+    ]
+  }
