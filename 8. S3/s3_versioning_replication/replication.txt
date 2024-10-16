@@ -1,0 +1,24 @@
+UI
+
+B1. enable bucket versioning
+- source
+- target
+
+--------
+
+B2: Source:
+- Tạo replication rule
+-> apply to all object
+-> destination: same account
+
+-----------
+
+B3: Role: create new role
+
+----------
+
+Replicate existing objects: Yes, replicating existing objects
+
+============
+CLI / Terraform
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-walkthrough1.html

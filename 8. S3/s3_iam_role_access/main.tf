@@ -13,6 +13,20 @@ resource "aws_s3_bucket" "chap_8_clf_02_tung" {
     force_destroy = true
 }
 
+resource "aws_s3_object" "chap_8_clf_02_tung_outer_file" {
+  bucket = aws_s3_bucket.chap_8_clf_02_tung.bucket
+  key = "file1.txt"
+
+  source = "${path.root}/test_files/file1.txt"
+}
+
+resource "aws_s3_object" "chap_8_clf_02_tung_access_dir" {
+  bucket = aws_s3_bucket.chap_8_clf_02_tung.bucket
+  key = "access/file2.txt"
+
+  source = "${path.root}/test_files/file2.txt"
+}
+
 
 resource "aws_iam_policy" "iam_policy_list_read_s3" {
   name = "iam_policy_list_read_s3"
