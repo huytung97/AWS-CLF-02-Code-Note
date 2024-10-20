@@ -1,0 +1,9 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore other unnecessary files
+*.pyc
+__pycache__/
+.git
+.dockerignore
+Dockerfile
