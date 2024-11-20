@@ -49,3 +49,35 @@ resource "aws_lambda_function" "testFunction_CLF02_Chap14" {
     log_group  = aws_cloudwatch_log_group.lambda_chap_14.name
   }
 }
+
+resource "aws_cloudwatch_event_rule" "clf02_chap_14" {
+  name                = "CLF-02-Chap_14"
+  schedule_expression = "rate(1 hour)"
+}
+
+resource "aws_cloudwatch_event_target" "clf02_chap_14_target" {
+  rule      = aws_cloudwatch_event_rule.clf02_chap_14.name
+  target_id = "lambda"
+  arn       = aws_lambda_function.testFunction_CLF02_Chap14.arn
+
+  input_transformer {
+    input_paths = {
+      timestamp = "$.time"
+    }
+
+    input_template = <<TEMPLATE
+{
+  "message": "Hello from EventBridge!",
+  "timestamp": <timestamp>
+}
+TEMPLATE
+  }
+}
+
+resource "aws_lambda_permission" "allow_eventbridge" {
+  statement_id  = "AllowExecutionFromEventBridge"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.testFunction_CLF02_Chap14.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.clf02_chap_14.arn
+}

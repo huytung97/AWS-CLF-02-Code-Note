@@ -1,6 +1,17 @@
+import json
+
 def lambda_handler(event, context):
-    print('Hello Lambda function')
+    # Extract parameters from EventBridge
+    message = event.get("message", "No message received")
+    timestamp = event.get("timestamp", "No timestamp received")
+    
+    print(f"Received message: {message}")
+    print(f"Received timestamp: {timestamp}")
+
     return {
         "statusCode": 200,
-        "body": "Hello, from Lambda!"
+        "body": json.dumps({
+            "message": message,
+            "timestamp": timestamp
+        })
     }
