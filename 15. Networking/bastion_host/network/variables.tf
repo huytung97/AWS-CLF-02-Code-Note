@@ -11,9 +11,9 @@ variable "az" {
   type = list(string)
 }
 
-# variable "private_subnets_cidr" {
-#     type = list(string)
-# }
+variable "private_subnets_cidr" {
+    type = list(string)
+}
 
 variable "public_subnet_cidr" {
     type = string

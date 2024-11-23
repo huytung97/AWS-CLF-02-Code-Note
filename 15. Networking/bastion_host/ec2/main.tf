@@ -36,3 +36,18 @@ resource "aws_instance" "public_instance" {
     "Name" = "CLF-02-Chap-15-public-instance"
   }
 }
+
+resource "aws_instance" "private_instances" {
+  count = length(var.private_subnets_id)
+
+  ami           = local.ami_id
+  instance_type = var.instance_type
+  key_name = var.key_pair_name
+
+  vpc_security_group_ids = [aws_security_group.public_instance_sg.id]
+  subnet_id = var.private_subnets_id[count.index]
+
+    tags = {
+    "Name" = "CLF-02-Chap-15-private-instance-${count.index}"
+  }
+}

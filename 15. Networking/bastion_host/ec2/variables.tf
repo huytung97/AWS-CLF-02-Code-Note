@@ -14,3 +14,7 @@ variable "key_pair_name" {
 variable "public_subnet_id" {
   type = string
 }
+
+variable "private_subnets_id" {
+  type = list(string)
+}
